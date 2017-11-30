@@ -4,15 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bei.andrii.forexcalculator.MainActivity">
+    tools:context="com.bei.andrii.forexcalculator.impl.MainActivityImpl">
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_boxes_sum"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:labelText="Баланс"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/et_sum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:textSize="14sp"
+            app:prefix="$" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinner_risk"
+        android:layout_width="175dp"
+        android:layout_height="51dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_field_boxes_sum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.jaredrummler.materialspinner.MaterialSpinner
+        android:id="@+id/spinner_tool"
+        android:layout_width="175dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/text_field_boxes_sum"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_risk" />
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_enter_price"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:labelText="Цена входа"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_tool">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/et_enter_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
     <TextView
+        android:id="@+id/tv_price_step"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Цена $/пункт"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_field_enter_price"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_tool" />
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_stop_price"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:labelText="Цена стоп"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_enter_price">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/et_stop_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <TextView
+        android:id="@+id/price_stop"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Стоп пунктов"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_field_stop_price"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_enter_price" />
+
+    <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
+        android:id="@+id/text_field_profit_price"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        app:labelText="Цена профит"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_stop_price">
+
+        <studio.carbonylgroup.textfieldboxes.ExtendedEditText
+            android:id="@+id/et_profit_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="numberDecimal"
+            android:textSize="14sp" />
+
+    </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
+
+    <TextView
+        android:id="@+id/tv_profit_step"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:text="Профит пунктов"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/text_field_profit_price"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_stop_price" />
+
+
+    <Button
+        android:id="@+id/btn_calculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="16dp"
+        android:text="Подсчёт"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_field_profit_price" />
+
+    <TextView
+        android:id="@+id/amount_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Обем Входа в сделку лота"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
+
+    <TextView
+        android:id="@+id/expected_profit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Ожидаемая прибыль $"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/amount_enter" />
+
+    <TextView
+        android:id="@+id/percent_expected_profit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="% от баланса"
+        app:layout_constraintStart_toEndOf="@+id/expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/amount_enter" />
+
+    <TextView
+        android:id="@+id/expected_lesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Ожидаемая убыток $"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/expected_profit" />
+
+    <TextView
+        android:id="@+id/percent_expected_lesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="% от баланса"
+        app:layout_constraintStart_toEndOf="@+id/expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/expected_profit" />
+
+    <TextView
+        android:id="@+id/tv_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Коментарий :"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/percent_expected_lesion" />
 
 </android.support.constraint.ConstraintLayout>
