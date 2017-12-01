@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">"Forex calculator  "</string>
+    <string name="tv_price_step">Цена %1$d $/пункт</string>
+    <string name="tv_price_stop">Стоп %1$d пунктов</string>
+    <string name="tv_profit_steps">Профит %1$d пунктов</string>
 
     <string-array name="spinner_string_array_risk">
         <item>2</item>

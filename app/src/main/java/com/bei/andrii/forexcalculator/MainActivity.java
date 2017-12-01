@@ -5,4 +5,10 @@ package com.bei.andrii.forexcalculator;
  */
 
 public interface MainActivity {
+
+    void showResultForStep(int mPPrice, int mPStop, int mPTake);
+
+    void showResultAmount();
+
+    void showResultComment();
 }

@@ -20,7 +20,7 @@
             android:id="@+id/et_sum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="0"
+            android:text="0"
             android:inputType="numberDecimal"
             android:textSize="14sp"
             app:prefix="$" />
@@ -61,8 +61,8 @@
             android:id="@+id/et_enter_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="0"
             android:inputType="numberDecimal"
+            android:text="0.0"
             android:textSize="14sp" />
 
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Цена $/пункт"
+        android:text="@string/tv_price_step"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_enter_price"
         app:layout_constraintTop_toBottomOf="@+id/spinner_tool" />
@@ -91,7 +91,7 @@
             android:id="@+id/et_stop_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="0"
+            android:text="0.0"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Стоп пунктов"
+        android:text="@string/tv_price_stop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_stop_price"
         app:layout_constraintTop_toBottomOf="@+id/text_field_enter_price" />
@@ -121,7 +121,7 @@
             android:id="@+id/et_profit_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="0"
+            android:text="0.0"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="Профит пунктов"
+        android:text="@string/tv_profit_steps"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_profit_price"
         app:layout_constraintTop_toBottomOf="@+id/text_field_stop_price" />

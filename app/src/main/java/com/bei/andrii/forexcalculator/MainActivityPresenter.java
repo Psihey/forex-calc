@@ -10,4 +10,5 @@ public interface MainActivityPresenter {
 
     void unbind();
 
+    void calculate(int sum, float enterPrice, float stopPrice, float profitPrice, int risk, String tool);
 }
