@@ -34,6 +34,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_boxes_sum"
         app:layout_constraintTop_toTopOf="parent" />
@@ -97,7 +98,7 @@
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
 
     <TextView
-        android:id="@+id/price_stop"
+        android:id="@+id/tv_price_stop"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -149,7 +150,7 @@
         app:layout_constraintTop_toBottomOf="@+id/text_field_profit_price" />
 
     <TextView
-        android:id="@+id/amount_enter"
+        android:id="@+id/tv_amount_enter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -159,44 +160,44 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
 
     <TextView
-        android:id="@+id/expected_profit"
+        android:id="@+id/tv_expected_profit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Ожидаемая прибыль $"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/amount_enter" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
 
     <TextView
-        android:id="@+id/percent_expected_profit"
+        android:id="@+id/tv_percent_expected_profit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="% от баланса"
-        app:layout_constraintStart_toEndOf="@+id/expected_profit"
-        app:layout_constraintTop_toBottomOf="@+id/amount_enter" />
+        app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
 
     <TextView
-        android:id="@+id/expected_lesion"
+        android:id="@+id/tv_expected_lesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Ожидаемая убыток $"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/expected_profit" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
 
     <TextView
-        android:id="@+id/percent_expected_lesion"
+        android:id="@+id/tv_percent_expected_lesion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="% от баланса"
-        app:layout_constraintStart_toEndOf="@+id/expected_profit"
-        app:layout_constraintTop_toBottomOf="@+id/expected_profit" />
+        app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
 
     <TextView
         android:id="@+id/tv_comment"
@@ -209,6 +210,6 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/percent_expected_lesion" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_percent_expected_lesion" />
 
 </android.support.constraint.ConstraintLayout>
