@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bei.andrii.forexcalculator.impl.MainActivityImpl">
+    tools:context="com.bei.andrii.forexcalculator.activity.impl.MainActivityImpl">
 
     <studio.carbonylgroup.textfieldboxes.TextFieldBoxes
         android:id="@+id/text_field_boxes_sum"
@@ -20,7 +20,7 @@
             android:id="@+id/et_sum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0"
+            android:text="@string/activity_main_sum_default"
             android:inputType="numberDecimal"
             android:textSize="14sp"
             app:prefix="$" />
@@ -62,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:text="0.0"
+            android:text="@string/main_activity_enter_price_default"
             android:textSize="14sp" />
 
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/tv_price_step"
+        android:text="@string/main_activity_price_unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_enter_price"
         app:layout_constraintTop_toBottomOf="@+id/spinner_tool" />
@@ -91,7 +91,7 @@
             android:id="@+id/et_stop_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0"
+            android:text="@string/main_activity_price_stop_default"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -103,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/tv_price_stop"
+        android:text="@string/main_activity_stop_unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_stop_price"
         app:layout_constraintTop_toBottomOf="@+id/text_field_enter_price" />
@@ -121,7 +121,7 @@
             android:id="@+id/et_profit_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0.0"
+            android:text="@string/main_activity_profit_price_default"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:text="@string/tv_profit_steps"
+        android:text="@string/main_activity_profit_unknown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/text_field_profit_price"
         app:layout_constraintTop_toBottomOf="@+id/text_field_stop_price" />
@@ -144,7 +144,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Подсчёт"
+        android:text="@string/activity_main_btn_calculate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_field_profit_price" />
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Обем Входа в сделку лота"
+        android:text="@string/main_activity_amount_unknown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
 
@@ -165,7 +165,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Ожидаемая прибыль $"
+        android:text="@string/main_activity_profit_unknown_yet"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
 
@@ -175,7 +175,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="% от баланса"
+        android:text="@string/main_activity_profit_percent_unknown"
         app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
         app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
 
@@ -185,7 +185,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Ожидаемая убыток $"
+        android:text="@string/main_activity_lesion_unknown"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
 
@@ -195,7 +195,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="% от баланса"
+        android:text="@string/main_activity_lesion_percent_unknown"
         app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
         app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
 
@@ -206,7 +206,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="Коментарий :"
+        android:text="@string/main_activity_comment_unknown"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
