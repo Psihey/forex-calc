@@ -20,7 +20,6 @@
             android:id="@+id/et_sum"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/activity_main_sum_default"
             android:inputType="numberDecimal"
             android:textSize="14sp"
             app:prefix="$" />
@@ -62,7 +61,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
-            android:text="@string/main_activity_enter_price_default"
             android:textSize="14sp" />
 
     </studio.carbonylgroup.textfieldboxes.TextFieldBoxes>
@@ -91,7 +89,6 @@
             android:id="@+id/et_stop_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_activity_price_stop_default"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -121,7 +118,6 @@
             android:id="@+id/et_profit_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/main_activity_profit_price_default"
             android:inputType="numberDecimal"
             android:textSize="14sp" />
 
@@ -157,7 +153,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/main_activity_amount_unknown"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_calculate" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_comment" />
 
     <TextView
         android:id="@+id/tv_expected_profit"
@@ -175,8 +171,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/main_activity_profit_percent_unknown"
         app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="% от баланса"
+        app:layout_constraintStart_toEndOf="@+id/tv_percent_expected_profit"
         app:layout_constraintTop_toBottomOf="@+id/tv_amount_enter" />
 
     <TextView
@@ -195,8 +198,15 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:text="@string/main_activity_lesion_percent_unknown"
         app:layout_constraintStart_toEndOf="@+id/tv_expected_profit"
+        app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="% от баланса"
+        app:layout_constraintStart_toEndOf="@+id/tv_percent_expected_lesion"
         app:layout_constraintTop_toBottomOf="@+id/tv_expected_profit" />
 
     <TextView
@@ -210,6 +220,6 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_percent_expected_lesion" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_calculate"/>
 
 </android.support.constraint.ConstraintLayout>

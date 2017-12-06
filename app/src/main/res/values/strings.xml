@@ -5,22 +5,25 @@
     <string name="tv_profit_steps">Профит %1$d пунктов</string>
     <string name="tv_amount_enter">Обем Входа в сделку %1$s лота(в)</string>
     <string name="tv_expected_profit">Ожидаемая прибыль %1$s $</string>
-    <string name="tv_percent_expected_profit"> %1$s от баланса</string>
+    <string name="tv_percent_expected_profit"> %1$s </string>
     <string name="tv_expected_lesion">Ожидаемая убыток %1$s $</string>
-    <string name="tv_percent_expected_lesion"> %1$s от баланса</string>
+    <string name="tv_percent_expected_lesion"> %1$s </string>
     <string name="tv_coment">Коментарий : %1$s</string>
     <string name="main_activity_risk_chosen">Выбран риск:</string>
     <string name="main_activity_tool_chosen">Выбран инструмент:</string>
     <string name="main_activity_error_data">Неверные входные даные</string>
     <string name="main_activity_divide_on_null">Деление на 0 проверьте верность данных</string>
-    <string name="main_presenter_no_sens_to_risk">нет смысла рисковать</string>
-    <string name="main_presenter_doesnt_be_idiot">не будь глупцом</string>
-    <string name="main_presenter_not_amount_for_condition">нет объёма под условия</string>
-    <string name="main_presenter_check_enter_condition_again">проверь, правильно ввёл стоп и тэйк?</string>
-    <string name="activity_main_sum_default">0</string>
-    <string name="main_activity_enter_price_default">0.0</string>
-    <string name="main_activity_price_stop_default">0.0</string>
-    <string name="main_activity_profit_price_default">0.0</string>
+
+    <string name="main_presenter_no_sens_to_risk">Нет смысла рисковать</string>
+    <string name="main_presenter_doesnt_be_idiot">Не будь глупцом</string>
+    <string name="main_presenter_not_amount_for_condition">Нет объёма под условия</string>
+    <string name="main_presenter_lets_go">Действуй</string>
+    <string name="main_presenter_check_enter_condition_again">Проверь, правильно ввёл стоп и тэйк?</string>
+
+    <string name="activity_main_sum_default">500</string>
+    <string name="main_activity_enter_price_default">1.15</string>
+    <string name="main_activity_price_stop_default">1.149</string>
+    <string name="main_activity_profit_price_default">1.17</string>
     <string name="activity_main_btn_calculate">Подсчёт</string>
     <string name="main_activity_price_unknown">Цена не расчитана</string>
     <string name="main_activity_stop_unknown">Стоп не расчитан</string>

@@ -3,12 +3,13 @@ package com.bei.andrii.forexcalculator.activity.impl;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bei.andrii.forexcalculator.Const;
+import com.bei.andrii.forexcalculator.R;
 import com.bei.andrii.forexcalculator.activity.MainActivity;
 import com.bei.andrii.forexcalculator.activity.MainActivityPresenter;
-import com.bei.andrii.forexcalculator.R;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import butterknife.BindView;
@@ -54,6 +55,7 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     private MainActivityPresenter mMainActivityPresenter;
     private String mRiskValue;
     private String mTool;
+    private int clickcount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +96,8 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     }
 
     @Override
-    public void showResultAmount(long mAmountEnter, float mExpectedProfit, float mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent) {
-        mTextViewAmountEnter.setText(getResources().getString(R.string.tv_amount_enter, String.valueOf(mAmountEnter)));
+    public void showResultAmount(float mAmountEnter, double mExpectedProfit, double mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent) {
+        mTextViewAmountEnter.setText(getResources().getString(R.string.tv_amount_enter, String.valueOf(roundFloat(mAmountEnter))));
         mTextViewExpectedProfit.setText(getResources().getString(R.string.tv_expected_profit, String.valueOf(mExpectedProfit)));
         mTextViewExpectedLesion.setText(getResources().getString(R.string.tv_expected_lesion, String.valueOf(mExpectedLesion)));
         mTextViewPercentExpectedProfit.setText(getResources().getString(R.string.tv_percent_expected_profit, String.valueOf(mExpectedProfitPercent)));
@@ -104,12 +106,58 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
 
     @Override
     public void showResultComment(int mComment) {
-        mTextViewComment.setText(mComment);
+        if (mComment == R.string.main_presenter_no_sens_to_risk) {
+            changeTextCommentCondition(mComment, R.color.comment_red);
+        } else if (mComment == R.string.main_presenter_doesnt_be_idiot) {
+            changeTextCommentCondition(mComment, R.color.comment_orange);
+        } else if (mComment == R.string.main_presenter_lets_go) {
+            changeTextCommentCondition(mComment, R.color.comment_green);
+        } else if (mComment == R.string.main_presenter_not_amount_for_condition) {
+            changeTextCommentCondition(mComment, R.color.comment_red);
+            clearAmount();
+        } else if (mComment == R.string.main_presenter_check_enter_condition_again) {
+            changeTextCommentCondition(mComment, R.color.comment_red);
+            clearAmount();
+        }
     }
 
     @Override
     public void showErrorSnackBarDivideOnZero() {
         Snackbar.make(mTextViewAmountEnter, R.string.main_activity_divide_on_null, Snackbar.LENGTH_LONG).show();
+    }
+
+    @OnClick({R.id.et_enter_price, R.id.et_sum, R.id.et_stop_price, R.id.et_profit_price})
+    public void clearTextField(View view) {
+        int id = view.getId();
+        if (id == R.id.et_enter_price) {
+            cleanView(view);
+        } else if (id == R.id.et_sum) {
+            cleanView(view);
+        } else if (id == R.id.et_stop_price) {
+            cleanView(view);
+        } else if (id == R.id.et_profit_price) {
+            cleanView(view);
+        }
+    }
+
+    private void clearAmount() {
+        mTextViewAmountEnter.setText("0");
+        mTextViewExpectedProfit.setText("0");
+        mTextViewPercentExpectedProfit.setText("0");
+        mTextViewExpectedLesion.setText("0");
+        mTextViewPercentExpectedLesion.setText("0");
+    }
+
+    private void cleanView(View view) {
+        clickcount = 0;
+        clickcount++;
+        ((ExtendedEditText) view).setText("");
+        clickcount = 0;
+    }
+
+    private void changeTextCommentCondition(int mComment, int color) {
+        mTextViewComment.setBackgroundColor(getResources().getColor(color));
+        mTextViewComment.setText(mComment);
     }
 
     private void initSpinners() {
@@ -131,6 +179,12 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
                 mTool = item.toString();
             }
         });
+    }
+
+    private float roundFloat(float number) {
+        number = number * 100;
+        int i = Math.round(number);
+        return (float) i / 100;
     }
 
 }
