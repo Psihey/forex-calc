@@ -96,18 +96,19 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     }
 
     @Override
-    public void showResultAmount(float mAmountEnter, double mExpectedProfit, double mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent) {
+    public void showResultAmount(float mAmountEnter, float mExpectedProfit, float mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent) {
         mTextViewAmountEnter.setText(getResources().getString(R.string.tv_amount_enter, String.valueOf(roundFloat(mAmountEnter))));
-        mTextViewExpectedProfit.setText(getResources().getString(R.string.tv_expected_profit, String.valueOf(mExpectedProfit)));
-        mTextViewExpectedLesion.setText(getResources().getString(R.string.tv_expected_lesion, String.valueOf(mExpectedLesion)));
-        mTextViewPercentExpectedProfit.setText(getResources().getString(R.string.tv_percent_expected_profit, String.valueOf(mExpectedProfitPercent)));
-        mTextViewPercentExpectedLesion.setText(getResources().getString(R.string.tv_percent_expected_lesion, String.valueOf(mExpectedLesionPercent)));
+        mTextViewExpectedProfit.setText(getResources().getString(R.string.tv_expected_profit,String.valueOf(roundFloat(mExpectedProfit))));
+        mTextViewExpectedLesion.setText(getResources().getString(R.string.tv_expected_lesion, String.valueOf(roundFloat(mExpectedLesion))));
+        mTextViewPercentExpectedProfit.setText(getResources().getString(R.string.tv_percent_expected_profit, String.valueOf(roundFloat(mExpectedProfitPercent))));
+        mTextViewPercentExpectedLesion.setText(getResources().getString(R.string.tv_percent_expected_lesion, String.valueOf(roundFloat(mExpectedLesionPercent))));
     }
 
     @Override
     public void showResultComment(int mComment) {
         if (mComment == R.string.main_presenter_no_sens_to_risk) {
             changeTextCommentCondition(mComment, R.color.comment_red);
+            clearAmount();
         } else if (mComment == R.string.main_presenter_doesnt_be_idiot) {
             changeTextCommentCondition(mComment, R.color.comment_orange);
         } else if (mComment == R.string.main_presenter_lets_go) {

@@ -7,7 +7,7 @@ import com.bei.andrii.forexcalculator.activity.MainActivityPresenter;
 
 public class MainActivityPresenterImpl implements MainActivityPresenter {
 
-    private static final int PPRICE_FOR_EUR_USD = 10;
+    private static final int PPRICE_FOR_EUR_USD = 1;
     private static final int LOT_FOR_EUR_USD = 100000;
     private static final int NOT_AMOUNT_FOR_CONDITION = 0;
 
@@ -80,8 +80,8 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
         float mExpectedLesionPercent;
         float profitDivideLesion;
         float mAmountEnter = (float) (mAmountEnterTemp * 0.01);
-        double mExpectedProfit = mPTake * mAmountEnter * mPPrice;
-        double mExpectedLesion = mPStop * mAmountEnter * mPPrice;
+        float mExpectedProfit = mPTake * mAmountEnter * mPPrice;
+        float mExpectedLesion = mPStop * mAmountEnter * mPPrice;
         try {
             mExpectedProfitPercent = (float) (mExpectedProfit / sum * 100);
             mExpectedLesionPercent = (float) (mExpectedLesion / sum * 100);
