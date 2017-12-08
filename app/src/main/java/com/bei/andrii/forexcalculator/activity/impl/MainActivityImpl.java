@@ -89,8 +89,8 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     }
 
     @Override
-    public void showResultForStep(int mPPrice, int mPStop, int mPTake) {
-        mTextViewPriceStep.setText(getResources().getString(R.string.tv_price_step, mPPrice));
+    public void showResultForStep(float mPPrice, int mPStop, int mPTake) {
+        mTextViewPriceStep.setText(getResources().getString(R.string.tv_price_step, String.valueOf(roundFloat(mPPrice))));
         mTextViewPriceStop.setText(getResources().getString(R.string.tv_price_stop, mPStop));
         mTextViewProfitStep.setText(getResources().getString(R.string.tv_profit_steps, mPTake));
     }

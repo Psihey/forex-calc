@@ -7,13 +7,19 @@ import com.bei.andrii.forexcalculator.activity.MainActivityPresenter;
 
 public class MainActivityPresenterImpl implements MainActivityPresenter {
 
-    private static final int PPRICE_FOR_EUR_USD = 1;
+
+    private static final int PPRICE_FOR_DIVIDE_ON_USD = 1;
     private static final int LOT_FOR_EUR_USD = 100000;
+    private static final int LOT_FOR_GBP_USD = 100000;
+    private static final int LOT_FOR_BTC_USD = 1000;
+    private static final int LOT_FOR_XAU_USD = 1000;
+    private static final int LOT_FOR_USD_JPY = 1000;
+
     private static final int NOT_AMOUNT_FOR_CONDITION = 0;
 
     private MainActivity mMainActivity;
-    private int mPPrice;
-    private long mAmountEnterTemp;
+    private float mPPrice;
+    private float mAmountEnterTemp;
     private int mPStop;
     private int mPTake;
     private long mSumOfRisk;
@@ -33,16 +39,28 @@ public class MainActivityPresenterImpl implements MainActivityPresenter {
     @Override
     public void calculate(long sum, float enterPrice, float stopPrice, float profitPrice, int risk, String tool) {
         if (tool.equals(Const.EUR_USD_TOOL)) {
-            mPPrice = PPRICE_FOR_EUR_USD;
+            mPPrice = PPRICE_FOR_DIVIDE_ON_USD;
             mPLOt = LOT_FOR_EUR_USD;
+        } else if(tool.equals(Const.GBP_USD_TOOL)){
+            mPPrice = PPRICE_FOR_DIVIDE_ON_USD;
+            mPLOt = LOT_FOR_GBP_USD;
+        }else if(tool.equals(Const.BTC_USD_TOOL)){
+            mPPrice = PPRICE_FOR_DIVIDE_ON_USD;
+            mPLOt = LOT_FOR_BTC_USD;
+        }else if(tool.equals(Const.XAU_USD_TOOL)){
+            mPPrice = PPRICE_FOR_DIVIDE_ON_USD;
+            mPLOt = LOT_FOR_XAU_USD;
+        }else if(tool.equals(Const.USD_JPY_TOOL)){
+            mPPrice = 100/enterPrice;
+            mPLOt = LOT_FOR_USD_JPY;
         }
+
         mSumOfRisk = sum * risk;
         mSum = sum;
         calculateResultForStep(enterPrice, stopPrice, profitPrice);
     }
 
     private void calculateResultForStep(float enterPrice, float stopPrice, float profitPrice) {
-
         if (enterPrice > stopPrice && enterPrice < profitPrice) {
             float pStop = (enterPrice - stopPrice) * mPLOt;
             mPStop = Math.round(pStop);

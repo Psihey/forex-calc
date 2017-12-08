@@ -2,7 +2,7 @@ package com.bei.andrii.forexcalculator.activity;
 
 public interface MainActivity {
 
-    void showResultForStep(int mPPrice, int mPStop, int mPTake);
+    void showResultForStep(float mPPrice, int mPStop, int mPTake);
 
     void showResultAmount(float mAmountEnter, float mExpectedProfit, float mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent);
 

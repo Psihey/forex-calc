@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">"Forex calculator  "</string>
-    <string name="tv_price_step">Цена %1$d $/пункт</string>
+    <string name="tv_price_step">Цена %1$s $/пункт</string>
     <string name="tv_price_stop">Стоп %1$d пунктов</string>
     <string name="tv_profit_steps">Профит %1$d пунктов</string>
     <string name="tv_amount_enter">Обем Входа в сделку %1$s лота(в)</string>
@@ -49,7 +49,10 @@
 
     <string-array name="spinner_string_array_tools">
         <item>EUR/USD</item>
-        <item>USD/EUR</item>
+        <item>GBP/USD</item>
+        <item>BTC/USD</item>
+        <item>XAU/USD</item>
+        <item>USD/JPY</item>
     </string-array>
 
 </resources>
