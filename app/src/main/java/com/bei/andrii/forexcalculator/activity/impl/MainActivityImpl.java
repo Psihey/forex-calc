@@ -16,6 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import studio.carbonylgroup.textfieldboxes.ExtendedEditText;
+import studio.carbonylgroup.textfieldboxes.TextFieldBoxes;
 
 public class MainActivityImpl extends AppCompatActivity implements MainActivity {
 
@@ -51,6 +52,15 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     TextView mTextViewPercentExpectedLesion;
     @BindView(R.id.tv_comment)
     TextView mTextViewComment;
+    @BindView(R.id.text_field_boxes_sum)
+    TextFieldBoxes mBoxesSum;
+    @BindView(R.id.text_field_enter_price)
+    TextFieldBoxes mBoxesEnterPrice;
+    @BindView(R.id.text_field_stop_price)
+    TextFieldBoxes mBoxesStopPrice;
+    @BindView(R.id.text_field_profit_price)
+    TextFieldBoxes mBoxesFieldProfit;
+
 
     private MainActivityPresenter mMainActivityPresenter;
     private String mRiskValue;
@@ -75,16 +85,20 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
 
     @OnClick(R.id.btn_calculate)
     public void calculate() {
-        long sum = Long.valueOf(mEditTextSum.getText().toString());
-        float enterPrice = Float.valueOf(mEditTextEnterPrice.getText().toString());
-        float stopPrice = Float.valueOf(mEditTextStopPrice.getText().toString());
-        float profitPrice = Float.valueOf(mEditTextProfitPrice.getText().toString());
-        int risk = Integer.valueOf(mRiskValue);
 
-        if (sum != 0 && enterPrice != 0.0 && stopPrice != 0.0 && profitPrice != 0.0) {
-            mMainActivityPresenter.calculate(sum, enterPrice, stopPrice, profitPrice, risk, mTool);
+        if (!mEditTextSum.getText().toString().equals("") && !mEditTextEnterPrice.getText().toString().equals("") && !mEditTextStopPrice.getText().toString().equals("") && !mEditTextProfitPrice.getText().toString().equals("")) {
+            long sum = Long.valueOf(mEditTextSum.getText().toString());
+            float enterPrice = Float.valueOf(mEditTextEnterPrice.getText().toString());
+            float stopPrice = Float.valueOf(mEditTextStopPrice.getText().toString());
+            float profitPrice = Float.valueOf(mEditTextProfitPrice.getText().toString());
+            int risk = Integer.valueOf(mRiskValue);
+            if (sum != 0 && enterPrice != 0.0 && stopPrice != 0.0 && profitPrice != 0.0) {
+                mMainActivityPresenter.calculate(sum, enterPrice, stopPrice, profitPrice, risk, mTool);
+            } else {
+                Snackbar.make(mTextViewAmountEnter, R.string.main_activity_error_data, Snackbar.LENGTH_LONG).show();
+            }
         } else {
-            Snackbar.make(mTextViewAmountEnter, R.string.main_activity_error_data, Snackbar.LENGTH_LONG).show();
+            Snackbar.make(mTextViewAmountEnter, R.string.main_activity_empty_enter_fields, Snackbar.LENGTH_LONG).show();
         }
     }
 
@@ -98,7 +112,7 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
     @Override
     public void showResultAmount(float mAmountEnter, float mExpectedProfit, float mExpectedLesion, float mExpectedProfitPercent, float mExpectedLesionPercent) {
         mTextViewAmountEnter.setText(getResources().getString(R.string.tv_amount_enter, String.valueOf(roundFloat(mAmountEnter))));
-        mTextViewExpectedProfit.setText(getResources().getString(R.string.tv_expected_profit,String.valueOf(roundFloat(mExpectedProfit))));
+        mTextViewExpectedProfit.setText(getResources().getString(R.string.tv_expected_profit, String.valueOf(roundFloat(mExpectedProfit))));
         mTextViewExpectedLesion.setText(getResources().getString(R.string.tv_expected_lesion, String.valueOf(roundFloat(mExpectedLesion))));
         mTextViewPercentExpectedProfit.setText(getResources().getString(R.string.tv_percent_expected_profit, String.valueOf(roundFloat(mExpectedProfitPercent))));
         mTextViewPercentExpectedLesion.setText(getResources().getString(R.string.tv_percent_expected_lesion, String.valueOf(roundFloat(mExpectedLesionPercent))));
@@ -168,7 +182,7 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
         mSpinnerRisk.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                Snackbar.make(mTextViewAmountEnter, getString(R.string.main_activity_risk_chosen) + item, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(mTextViewAmountEnter, getString(R.string.main_activity_risk_chosen) + " " + item, Snackbar.LENGTH_SHORT).show();
                 mRiskValue = item.toString();
             }
         });
@@ -176,7 +190,7 @@ public class MainActivityImpl extends AppCompatActivity implements MainActivity 
         mSpinnerTool.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
-                Snackbar.make(mTextViewAmountEnter, getString(R.string.main_activity_tool_chosen) + item, Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(mTextViewAmountEnter, getString(R.string.main_activity_tool_chosen) + " " + item, Snackbar.LENGTH_SHORT).show();
                 mTool = item.toString();
             }
         });

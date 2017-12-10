@@ -34,6 +34,7 @@
     <string name="main_activity_lesion_percent_unknown">% пока не расчитан</string>
     <string name="main_activity_profit_percent_unknown">% не расчитан</string>
     <string name="main_activity_comment_unknown">Коментарий будет после расчитывания</string>
+    <string name="main_activity_empty_enter_fields">Заполните все поля ввода</string>
 
     <string-array name="spinner_string_array_risk">
         <item>2</item>
